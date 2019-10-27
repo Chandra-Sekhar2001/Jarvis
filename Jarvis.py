@@ -44,6 +44,19 @@ def LISTEN():
         print(f"Can't obtain results {e}")
     return text
 
+def shutdown(confirmation):
+    if confirmation == 'y':
+        os.system("shutdown /s /t 1")
+    else:
+        return
+
+
+def restart(confirmation):
+    if confirmation == 'y':
+        os.system("shutdown /r /t 1")
+    else:
+        return
+
 if __name__ == '__main__':
     wish()
     speak('Hello Sir,I am your digital assistant Jarvis', 0)
@@ -91,6 +104,18 @@ if __name__ == '__main__':
             os.system(random_music1)
 
             speak('Okay, here is your music! Enjoy!', 0)
+            
+# ---------------------------Shutdown and Restart---------------------------            
+        elif'shutdown' in query:
+                speak("Are you sure you want to shutdown?")
+                confirmation = LISTEN()
+                shutdown(confirmation[0])
+           
+        elif'restart' in query:
+                speak("Are you sure you want to restart?")
+                confirmation = LISTEN()
+                restart(confirmation[0])
+
 # ---------------------------Searchiung word---------------------------
         else:
             query = query   # I THINK ITS NOT REQUIRED ONCE CHECK.
