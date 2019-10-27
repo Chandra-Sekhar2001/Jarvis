@@ -71,7 +71,26 @@ if __name__ == '__main__':
         elif 'bye' in query:
             speak('Bye Sir, have a good day.', 0)
             sys.exit()
+# ---------------------------music---------------------------
+        elif 'play music' in query:
+            music_folder = "F:\\musical\\"
+            music = ['rabta', 'barsaat']
+            ok = random.choice(music)
+            random_music = music_folder + ok + '.mp3'
+            os.system(random_music)
 
+            speak('Okay, here is your music! Enjoy!', 0)
+
+        elif 'change music' in query:
+            music_folder1 = "F:\\musical\\"
+            music1 = ['rabta', 'barsaat']
+            ok1 = random.choice(music1)
+            while ok1 == ok:
+                ok1 = random.choice(music1)
+            random_music1 = music_folder + ok1 + '.mp3'
+            os.system(random_music1)
+
+            speak('Okay, here is your music! Enjoy!', 0)
 # ---------------------------Searchiung word---------------------------
         else:
             query = query   # I THINK ITS NOT REQUIRED ONCE CHECK.
